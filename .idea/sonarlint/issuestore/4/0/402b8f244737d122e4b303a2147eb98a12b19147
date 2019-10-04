@@ -1,0 +1,8 @@
+
+n
+squid:S1287"LEnd this switch case with an unconditional break, return or throw statement.(‰ÆÄÎşÿÿÿÿ8ÅÑè°Ò-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(¡£¥úÿÿÿÿ8¥Ÿ²±Ò-
+n
+squid:S1289"LEnd this switch case with an unconditional break, return or throw statement.(úâúÿÿÿÿ8ÅÑè°Ò-
+\"squid:SwitchLastCaseIsDefaultCheck6""Add a default case to this switch.(ŸÎé°ıÿÿÿÿ8ÅÑè°Ò-
