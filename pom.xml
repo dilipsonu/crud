@@ -18,11 +18,17 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <struts2.version>2.5.17</struts2.version>
+        <struts2.version>2.5.18</struts2.version>
         <log4j2.version>2.9.1</log4j2.version>
         <jetty-plugin.version>9.4.11.v20180605</jetty-plugin.version>
     </properties>
 
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.18.RELEASE</version>
+    </parent>
 
     <dependencies>
 
@@ -38,6 +44,42 @@
             <version>${log4j2.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-spring-plugin</artifactId>
+            <version>2.5.18</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -50,21 +92,22 @@
         </dependencies>
     </dependencyManagement>
 
+
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty-plugin.version}</version>
-                <configuration>
-                    <webApp>
-                        <contextPath>/${project.artifactId}</contextPath>
-                    </webApp>
-                    <stopKey>CTRL+C</stopKey>
-                    <stopPort>8999</stopPort>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.eclipse.jetty</groupId>-->
+                <!--<artifactId>jetty-maven-plugin</artifactId>-->
+                <!--<version>${jetty-plugin.version}</version>-->
+                <!--<configuration>-->
+                    <!--<webApp>-->
+                        <!--<contextPath>/${project.artifactId}</contextPath>-->
+                    <!--</webApp>-->
+                    <!--<stopKey>CTRL+C</stopKey>-->
+                    <!--<stopPort>8999</stopPort>-->
+                    <!--<scanIntervalSeconds>10</scanIntervalSeconds>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -73,6 +116,10 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

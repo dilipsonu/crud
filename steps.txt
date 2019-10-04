@@ -1,0 +1,91 @@
+To Add a specific build pack like tomee
+➜  target git:(master) cf push crud-app-dilip-hd -p crud-1.0-SNAPSHOT.war -b https://github.com/cloudfoundry-community/tomee-buildpack.git
+
+
+
+Add the spring plugin, spring boot and mysql connector, add spring boot parent for the defaults
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.18.RELEASE</version>
+    </parent>
+
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-spring-plugin</artifactId>
+            <version>2.5.18</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.13</version>
+        </dependency>
+
+
+        Add executable jar plugin
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+
+
+Write the main class
+
+@SpringBootApplication
+public class Crud {
+
+    public static void main (String [] args)
+    {
+        SpringApplication.run(Crud.class,args);
+    }
+
+
+Add Javax servlet with embedded tomcat
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+
+
+comment out the jetty plugin if any
+
+update packaging to war
+
+
+now cf push with java buildpack
+➜  target git:(master) ✗ cf push crud-app-dilip-hd -p crud-1.0-SNAPSHOT.war -b java_buildpack
+
+
+Add actuator and security
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+add application.properties
+
+add @EnableWebSecurity in the main class
