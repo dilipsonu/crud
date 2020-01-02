@@ -1,14 +1,16 @@
 To Add a specific build pack like tomee
 ➜  target git:(master) cf push crud-app-dilip-hd -p crud-1.0-SNAPSHOT.war -b https://github.com/cloudfoundry-community/tomee-buildpack.git
 
+use the spring boot2
 
+./mvnw spring-boot:run
 
 Add the spring plugin, spring boot and mysql connector, add spring boot parent for the defaults
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.18.RELEASE</version>
+        <version>2.0.8.RELEASE</version>
     </parent>
 
         <dependency>
@@ -86,6 +88,41 @@ Add actuator and security
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-add application.properties
+add application.yml
 
 add @EnableWebSecurity in the main class
+
+
+add server:
+      servlet:
+        session:
+          tracking-modes: cookie to take care of ;(semi colon in the url issue)
+
+ add actuator security
+     @Override
+     protected void configure(HttpSecurity http) throws Exception {
+         http.cors()
+                 .and()
+                 .csrf()
+                 .disable()
+                 .authorizeRequests()
+                 .requestMatchers(EndpointRequest.to("info","health")).permitAll()
+                 .requestMatchers(EndpointRequest.toAnyEndpoint()).authenticated()
+                 .and()
+                 .httpBasic()
+                 .and()
+                 .sessionManagement()
+                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                 .sessionAuthenticationStrategy(new NullAuthenticatedSessionStrategy());
+     }
+
+
+
+     add spring data JPA
+             <dependency>
+                 <groupId>org.springframework.boot</groupId>
+                 <artifactId>spring-boot-starter-data-jpa</artifactId>
+             </dependency>
+
+
+Add cloud connector

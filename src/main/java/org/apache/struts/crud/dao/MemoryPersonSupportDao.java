@@ -3,11 +3,13 @@ package org.apache.struts.crud.dao;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.struts.crud.model.Country;
+import org.springframework.stereotype.Component;
 
 /**
  * @author bruce phillips
  * @author antonio sanchez
  */
+@Component
 public class MemoryPersonSupportDao implements PersonSupportDao {
     private static final Country[] countries;
     private static final Map<String, Country> countriesMap;

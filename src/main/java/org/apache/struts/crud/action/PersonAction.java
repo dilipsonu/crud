@@ -8,6 +8,8 @@ import org.apache.struts.crud.model.Country;
 import org.apache.struts.crud.model.Person;
 import org.apache.struts.crud.service.DefaultPersonService;
 import org.apache.struts.crud.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Acts as a controller to handle actions related to editing a Person.
@@ -15,10 +17,12 @@ import org.apache.struts.crud.service.PersonService;
  * @author bruce phillips
  * @author antonio sánchez
  */
+@Component
 public class PersonAction extends ActionSupport implements Preparable {
     
     private static final Logger LOG = LogManager.getLogger(PersonAction.class.getName());
-    private PersonService personService = new DefaultPersonService();
+    @Autowired
+    private PersonService personService ;
     private Person person;
     private Person[] persons;
     private String[] sports;

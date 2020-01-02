@@ -6,6 +6,8 @@ import org.apache.struts.crud.dao.PersonDao;
 import org.apache.struts.crud.dao.PersonSupportDao;
 import org.apache.struts.crud.model.Country;
 import org.apache.struts.crud.model.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Implement Services needed to edit and save
@@ -15,14 +17,18 @@ import org.apache.struts.crud.model.Person;
  * @author antonio sanchez
  */
 
+@Component
 public class DefaultPersonService implements PersonService {
-    PersonDao personDao; 
+    @Autowired
+    PersonDao personDao;
+
+    @Autowired
     PersonSupportDao personSupportDao; 
     
-    public DefaultPersonService() {
-        personDao = new MemoryPersonDao();
-        personSupportDao = new MemoryPersonSupportDao();
-    }
+//    public DefaultPersonService() {
+//        personDao = new MemoryPersonDao();
+//        personSupportDao = new MemoryPersonSupportDao();
+//    }
 
     @Override
     public Person getPerson(Integer id) {

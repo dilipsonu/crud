@@ -1,0 +1,19 @@
+
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+^
+.src/main/java/org/apache/struts/crud/Crud.java,9/7/9775a75a14a1b2481b329be540197ff2f68ce401
+9
+	steps.txt,3/c/3c3340838e4825a6ae91ca806d474490ddf8c22a
+W
+'src/main/webapp/WEB-INF/jsp/persons.jsp,7/1/71108aa6f58b8e76835973313793ae8ab417efa1
+Q
+!src/main/webapp/WEB-INF/index.jsp,5/3/53f2773448a6c5938ccf5b998853f2da8ff8c2d4
+f
+6src/main/java/org/apache/struts/crud/model/Person.java,2/d/2d348186424d6bc3b0b43bc35d9eaaea8fdbec5c
+l
+<src/main/java/org/apache/struts/crud/model/PersonEntity.java,e/d/ed81cfeb8a54461b024d7b08cc463efa9ca5f958
+p
+@src/main/java/org/apache/struts/crud/model/PersonRepository.java,a/3/a38cbd6d16389d3aca8af1283a85ab05e15863bd
+u
+Esrc/main/java/org/apache/struts/crud/controller/PersonController.java,7/d/7d909518d764425bc94d316fcbed4d739edd52a5

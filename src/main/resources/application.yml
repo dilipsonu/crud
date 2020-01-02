@@ -1,0 +1,23 @@
+server:
+  servlet:
+    session:
+      tracking-modes: cookie
+
+spring:
+  security:
+    user:
+      name: xyz
+      password: xyz
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/pcfexam
+    password: exam
+    username: pcf
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

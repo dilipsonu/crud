@@ -135,7 +135,7 @@ public class Person implements Cloneable {
                 + " Gender: " + getGender() + " | "
                 + " Country: " + getCountry() + " | "
                 + " Over 21: " + isOver21() + " | "
-                + " Car models: " + Arrays.asList(getCarModels()) + " | "
+//                + " Car models: " + Arrays.asList(getCarModels()) + " | "
                 + " Email: " + getEmail() + " | "
                 + " Phone: " + getPhoneNumber();
     }
